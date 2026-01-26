@@ -83,3 +83,23 @@ test("parent element", async ({ page }) => {
     .getByRole("textbox", { name: "Password" })
     .click();
 });
+
+
+test("filter combination", async ({ page }) => {
+  await page
+    .locator("nb-card")
+    .filter({ has: page.locator("nb-checkbox") })
+    .filter({ hasText: "Sign in" })
+    .getByRole("textbox", { name: "Email" })
+    .click();
+});
+
+
+test("parent elment 2", async ({ page }) => {
+  await page
+    .locator(':text-is("Using the Grid")')
+    .locator("..")
+    .getByRole("textbox", { name: "Email" })
+    .click();
+});
+ 
